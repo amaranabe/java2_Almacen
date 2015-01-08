@@ -212,9 +212,9 @@ public class Main {
             for (int il;il<listalechuga.size();il++) {
                   System.out.println((il+1)+". ");
                   System.out.println("           "+listalechuga.get(il).mostrarlechuga()); 
+
             }
             System.out.println("-------------------------------------------------------");
-
 
             /*Paso 4C. Solicitar información leche*/
             ArrayList<Leche>listaleche=new ArrayList<Leche>();
