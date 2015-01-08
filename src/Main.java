@@ -80,10 +80,13 @@ public class Main {
                   for (int i=0; i<listadistribuidores.size(); i++) {
                         String verarray= listadistribuidores.get(i).getNombre();
                         System.out.println ("Distribuidor "+(i+1) +" es: " +verarray);
+
                         Direccion d= listadistribuidores.get(i).getDireccion();
                         System.out.println ("Dirección es "+(i+1) +" es: " +d.getDir());
+
                         verarray= listadistribuidores.get(i).getCIF();
                         System.out.println ("CIF "+(i+1) +" es: " +verarray);
+                        
                         Contacto c= listadistribuidores.get(i).getPersonacontacto();
                         System.out.println ("Persona de contacto "+(i+1) +" es: " +c.getNombre() + " "+ c.getApellido());
 
