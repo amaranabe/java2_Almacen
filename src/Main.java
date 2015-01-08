@@ -97,34 +97,43 @@ public class Main {
             /*
             *Ejercicio3:
             Paso 4.A- Solicitamos información de manzanas y la guardamos en objeto manzana y luego lo guardamos en Arraylist
-            
+            */
+            int contadorm=0;
 
-            System.out.println("Introduce tipo de manzana: " + );
-            Scanner sc = new Scanner(System.in);
-            String peticion=sc.next();
-            Manzana pedidomanzanas=new Manzana();
-            pedidomanzanas.setTipomanzana (peticion);
+            System.out.println("¿Cuántas manzanas quieres?");
+            contadorm=sc.nextInt();
+            int i;
+            for (i=0;i<=contadorm;i++) {
+                  
+                  Scanner sc = new Scanner(System.in);
+                  Manzana pedidomanzanas=new Manzana();
 
-            System.out.println("Introduce procedencia de la manzana: " + );
-            peticion=sc.next();
-            pedidomanzanas.setProcendencia(peticion);
+                  System.out.println("Introduce tipo de manzana: " + );
+                  String peticion=sc.next();
+                  pedidomanzanas.setTipomanzana (peticion);
 
-            System.out.println("Introduce el color de la manzana: " + );
-            peticion=sc.next();
-            pedidomanzanas.setColor(peticion);
+                  System.out.println("Introduce procedencia de la manzana: " + );
+                  peticion=sc.next();
+                  pedidomanzanas.setProcendencia(peticion);
 
-            System.out.println("Introduce el precio (euros/kg): " + );
-            peticion=sc.next();
-            pedidomanzanas.setEuroskilo(peticion);
+                  System.out.println("Introduce el color de la manzana: " + );
+                  peticion=sc.next();
+                  pedidomanzanas.setColor(peticion);
 
-            System.out.println("Introduce el nombre del distribuidor: " +);
-            peticion=sc.next();
-            int posiciondeinteres=-1;
-            for (int k=0; k<listadistribuidores.size();k++) {
-                  if(listadistribuidores.get(k).getNombre()==peticion){
-                        posiciondeinteres=k;
+                  System.out.println("Introduce el precio (euros/kg): " + );
+                  peticion=sc.next();
+                  pedidomanzanas.setEuroskilo(peticion);
+
+                  System.out.println("Introduce el nombre del distribuidor: " +);
+                  peticion=sc.next();
+                  int posiciondeinteres=-1;
+                  for (int k=0; k<listadistribuidores.size();k++) {
+                        if(listadistribuidores.get(k).getNombre()==peticion){
+                              posiciondeinteres=k;
+                        }
                   }
             }
+
 
             pedidomanzanas.setDistribuidor(listadistribuidores.get(posiciondeinteres))
             ArrayList<Manzana> listamanzanas=new ArrayList<Manzana>();
