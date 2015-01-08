@@ -14,32 +14,32 @@ public class Lechuga {
 
 		public String getTipolechuga() {
 
-		return tipoLechuga;
+			return tipoLechuga;
 		}
 
 		public void setTipolechuga(String idtipoLechuga) {
 
-			tipoLechuga=idtipoLechuga;
+			this.tipoLechuga=idtipoLechuga;
 		}
 
 		public String getProcedencia() {
 
-		return procedencia;
+			return procedencia;
 		}
 
 		public void setProcedencia(String idprocedencia) {
 
-			procedencia=idprocedencia;
+			this.procedencia=idprocedencia;
 		}
 
 		public String getColor() {
 
-		return color;
+			return color;
 		}
 
 		public void setColor(String idcolor) {
 
-			color=idcolor;
+			this.color=idcolor;
 		}
 
 		public Double getEurosunidad() {
@@ -49,17 +49,27 @@ public class Lechuga {
 
 		public void setEurosunidad(Double ideurosUnidad) {
 
-			eurosUnidad=ideurosUnidad;
+			this.eurosUnidad=ideurosUnidad;
 		}
 
-		public getDistribuidor () {
+		public Distribuidor getDistribuidor () {
 
 			return distribuidor;
 		}
 
 		public void setDistribuidor (Distribuidor iddistribuidor) {
 
-			distribuidor=iddistribuidor;
+			this.distribuidor=iddistribuidor;
+		}
+
+		public void mostrarlechuga() {
+			System.out.println("Las características de la lechuga son:");
+			System.out.println("			Tipo: "+getTipolechuga());
+			System.out.println("			Procedencia: "+getProcedencia());
+			System.out.println("			Color: "+getColor());
+			System.out.println("			Precio: "+getEurosunidad()+" euros/unidad");
+			System.out.println("			Distribuidor: "+getDistribuidor());	
+			System.out.println();	
 		}
 
 

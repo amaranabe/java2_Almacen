@@ -17,7 +17,7 @@ public class Leche {
 
 		public void setTipo(String idtipo) {
 
-			tipo=idtipo;
+			this.tipo=idtipo;
 		}
 
 		public String getProcedencia() {
@@ -27,7 +27,7 @@ public class Leche {
 
 		public void setProcedencia(String idprocedencia) {
 
-			procedencia=idprocedencia;
+			this.procedencia=idprocedencia;
 		}
 
 		public Double getEuroslitro() {
@@ -37,19 +37,27 @@ public class Leche {
 
 		public void setEuroslitro(Double ideurosLitro) {
 
-			eurosLitro=ideurosLitro;
+			this.eurosLitro=ideurosLitro;
 		}
 
-		public getDistribuidor() {
+		public Distribuidor getDistribuidor() {
 
 			return distribuidor;
 		}
 
 		public void setDistribuidor (Distribuidor iddistribuidor) {
 
-			distribuidor=iddistribuidor;
+			this.distribuidor=iddistribuidor;
 		}
 
+		public void mostrarleche() {
+			System.out.println("Las características de la leche son:");
+			System.out.println("			Tipo: "+getTipo());
+			System.out.println("			Procedencia: "+getProcedencia());
+			System.out.println("			Precio: "+getEuroslitro()+" euros/litro");
+			System.out.println("			Distribuidor: "+getDistribuidor());	
+			System.out.println();	
+		}
 
 
 }

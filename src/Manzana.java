@@ -14,32 +14,32 @@ public class Manzana {
 
 		public String getTipomanzana() {
 
-		return tipoManzana;
+			return tipoManzana;
 		}
 
 		public void setTipomanzana(String idtipoManzana) {
 
-			tipoManzana=idtipoManzana;
+			this.tipoManzana=idtipoManzana;
 		}
 
 		public String getProcedencia() {
 
-		return procedencia;
+			return procedencia;
 		}
 
 		public void setProcedencia(String idprocedencia) {
 
-			procedencia=idprocedencia;
+			this.procedencia=idprocedencia;
 		}
 
 		public String getColor() {
 
-		return color;
+			return color;
 		}
 
 		public void setColor(String idcolor) {
 
-			color=idcolor;
+			this.color=idcolor;
 		}
 
 		public Double getEuroskilo() {
@@ -49,19 +49,28 @@ public class Manzana {
 
 		public void setEuroskilo(Double ideurosKilo) {
 
-			eurosKilo=ideurosKilo;
+			this.eurosKilo=ideurosKilo;
 		}
 
-		public getDistribuidor () {
+		public Distribuidor getDistribuidor () {
 
 			return distribuidor;
 		}
 
 		public void setDistribuidor (Distribuidor iddistribuidor) {
 
-			distribuidor=iddistribuidor;
+			this.distribuidor=iddistribuidor;
 		}
 
+		public void mostrarmanzana() {
+			System.out.println("Las características de la manzana son:");
+			System.out.println("			Tipo: "+getTipomanzana());
+			System.out.println("			Procedencia: "+getProcedencia());
+			System.out.println("			Color: "+getColor());
+			System.out.println("			Precio: "+getEuroskilo()+" euros/kilo");
+			System.out.println("			Distribuidor: "+getDistribuidor());	
+			System.out.println();	
+		}
 
 
 }

@@ -1,8 +1,11 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.BufferedReader;
-import java.util.ArrayList;
+
 
 //import java.util.*;
 
@@ -12,8 +15,8 @@ public class Main {
 	public static void main (String[] args) {
 		
 		try {
-
-                  /*0.- Creo un fichero*/
+                  /*-------------------EJERCICIO CREAR FICHERO DISTRIBUIDORES-----------------*/
+                  /*0.- Creo fichero*/
 			FileWriter fw=new FileWriter ("distribuidores.txt");
 			fw.write("Eroski, Barrio San Agustín s/n., 48230, Elorrio, Bizkaia, 20033361-F, Jaime, Blanco");
                   fw.write(System.lineSeparator());
@@ -32,8 +35,8 @@ public class Main {
             */
                   FileReader fr=new FileReader ("distribuidores.txt");
                   BufferedReader br=new BufferedReader(fr);                              
-                  String lineadelfichero="algo";
-                  String [] atributosdistribuidor=new String[7];
+                  String lineadelfichero;
+                  String [] atributosdistribuidor;
                   ArrayList <Distribuidor> listadistribuidores=new ArrayList <Distribuidor> ();
 
                   lineadelfichero=br.readLine();
@@ -96,44 +99,161 @@ public class Main {
 
             /*
             *Ejercicio3:
-            Paso 4.A- Solicitamos información de manzanas y la guardamos en objeto manzana y luego lo guardamos en Arraylist
-            
+            Paso 4.A- Solicitamos información de manzanas y la guardamos en objeto manzana para luego guardarlo en Arraylist
+            */
+            Scanner sc=new Scanner(System.in);
+            ArrayList<Manzana> listamanzanas=new ArrayList<Manzana>();
 
-            System.out.println("Introduce tipo de manzana: " + );
-            Scanner sc = new Scanner(System.in);
-            String peticion=sc.next();
-            Manzana pedidomanzanas=new Manzana();
-            pedidomanzanas.setTipomanzana (peticion);
+            System.out.println("¿Cuántas manzanas quieres?");
+            int contadorm=sc.nextInt();
+            int m;
+            for (m=0;m<=contadorm;m++) {
 
-            System.out.println("Introduce procedencia de la manzana: " + );
-            peticion=sc.next();
-            pedidomanzanas.setProcendencia(peticion);
+                  System.out.println("Introduce tipo de manzana: ");
+                  String peticion=sc.next();
+                  Manzana pedidomanzanas=new Manzana();
+                  pedidomanzanas.setTipomanzana (peticion);
 
-            System.out.println("Introduce el color de la manzana: " + );
-            peticion=sc.next();
-            pedidomanzanas.setColor(peticion);
+                  System.out.println("Introduce procedencia de la manzana: ");
+                  peticion=sc.next();
+                  pedidomanzanas.setProcedencia(peticion);
 
-            System.out.println("Introduce el precio (euros/kg): " + );
-            peticion=sc.next();
-            pedidomanzanas.setEuroskilo(peticion);
+                  System.out.println("Introduce el color de la manzana: ");
+                  peticion=sc.next();
+                  pedidomanzanas.setColor(peticion);
 
-            System.out.println("Introduce el nombre del distribuidor: " +);
-            peticion=sc.next();
-            int posiciondeinteres=-1;
-            for (int k=0; k<listadistribuidores.size();k++) {
-                  if(listadistribuidores.get(k).getNombre()==peticion){
-                        posiciondeinteres=k;
-                  }
+                  System.out.println("Introduce el precio (euros/kg): ");
+                  pedidomanzanas.setEuroskilo(sc.nextDouble());
+
+                  System.out.println("Introduce el nombre del distribuidor: ");
+                  peticion=sc.next();
+                        int posiciondeinteres=-1;
+                        for (int k=0; k<listadistribuidores.size();k++) {
+
+                              if(listadistribuidores.get(k).getNombre()==peticion){
+                                    posiciondeinteres=k;
+                              }
+
+                        }
+
+                  pedidomanzanas.setDistribuidor(listadistribuidores.get(posiciondeinteres));
+
+
+                  listamanzanas.add(pedidomanzanas);
+
             }
 
-            pedidomanzanas.setDistribuidor(listadistribuidores.get(posiciondeinteres))
-            ArrayList<Manzana> listamanzanas=new ArrayList<Manzana>();
-            listamanzanas.add(pedidomanzanas);
+            //Visualizamos arraylist de manzana (listamanzanas)
 
-            */
+            System.out.println("=======================================================");
+            System.out.println("El pedido de manzana es el siguiente: ");
+            for (int im=0;im<listamanzanas.size();im++) {
+                  System.out.println((im+1)+".");
+                  System.out.println("          "+listamanzanas.get(im).mostrarmanzana); 
+            }
+            System.out.println("-------------------------------------------------------");
+
+
+            /*Paso 4B. Solicitar información lechuga*/
+            
+            ArrayList<Lechuga> listalechuga=new ArrayList<Lechuga>();
+
+            System.out.println();
+            System.out.println("¿Cuántas lechugas quieres?");
+            int numlechuga=sc.nextInt();
+
+            for (int l=0;l<=numlechuga;l++) {
+                  Lechuga pedidolechugas=new Lechuga();
+
+                  System.out.print("Introduce tipo de lechuga: ");
+                  String peticion=sc.next();
+                  pedidolechugas.setTipolechuga(peticion);
+                  System.out.println();
+
+                  System.out.print("Introduce procedencia de la lechuga: ");
+                  peticion=sc.next();
+                  pedidolechugas.setProcedencia(peticion);
+                  System.out.println();
+
+                  System.out.print("Introduce color de la lechuga:  ");
+                  peticion=sc.next();
+                  pedidolechugas.setColor(peticion);
+                  System.out.println();
+
+                  System.out.print("Introduce el precio (euros/unidad): ");
+                  pedidolechugas.setEurosunidad(sc.nextDouble());
+                  System.out.println();
+
+                  System.out.print("Introduce nombre del distribuidor: ");
+                  peticion=sc.next();
+                        //Buscamos el nombre en el arraylist distribuidor y guardamos la posicion
+                        int posiciondeinteres2;
+                        for (int b=0;b<listadistribuidores.size();b++) {
+                              if (peticion==listadistribuidores.get(b).getNombre()) {
+                                    posiciondeinteres2=b;
+                              }
+                              
+                        }
+                  pedidolechugas.setDistribuidor(listadistribuidores.get(posiciondeinteres2));
+
+                  listalechuga.add(pedidolechugas);                        
+                              
+            }//fin for lechugas
+
+            //Visualizamos arraylist de lechuga (pedidolechugas)
 
 
 
+            System.out.println();
+            System.out.println("El pedido de lechuga es el siguiente: ");
+            for (int il;il<listalechuga.size();il++) {
+                  System.out.println((il+1)+". ");
+                  System.out.println("           "+listalechuga.get(il).mostrarlechuga()); 
+            }
+            System.out.println("-------------------------------------------------------");
+
+
+            /*Paso 4C. Solicitar información leche*/
+            ArrayList<Leche>listaleche=new ArrayList<Leche>();
+
+            System.out.println("¿Cuántos pedidos de leche quieres?");
+            int numleche;
+            numleche=sc.nextInt();
+            for (int lg;lg<=numleche;lg++) {
+
+                  Leche pedidoleche=new Leche();
+
+                  System.out.println("Introduce tipo de leche: ");
+                  pedidoleche.setTipo(sc.next());
+
+                  System.out.println("Introduce la procedencia: ");
+                  pedidoleche.setProcedencia(sc.next());
+
+                  System.out.println("Introduce el precio (euros/litro): ");
+                  pedidoleche.setEuroslitro(sc.nextDouble());
+
+                  System.out.println("Introduce el nombre del distribuidor: ");
+                        peticion=sc.next();
+
+                        for (int c=0;c<listadistribuidores.size();c++) {
+                              int posiciondeinteres3=-1;
+                              if (peticion==listadistribuidores.get(c).getNombre()) posiciondeinteres3=c;
+                        }
+                  pedidoleche.setDistribuidor(listadistribuidores.get(posiciondeinteres3));
+
+                  listaleche.add(pedidoleche);
+                        
+            }
+
+            //Visualizamos arraylist de tipo leche (listaleche)
+
+            System.out.println();
+            System.out.println("El pedido de leche es el siguiente: ");
+            for (int ll=0;ll<listaleche.size();ll++) {
+                  System.out.println((ll+1)+". ");
+                  System.out.println("            "+listaleche.get(ll).mostrarleche());
+            }
+            System.out.println("-------------------------------------------------------");
 
 	}
 
