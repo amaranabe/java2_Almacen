@@ -13,7 +13,11 @@ import java.io.BufferedReader;
 public class Main {
 
 	public static void main (String[] args) {
-		
+	
+            String lineadelfichero;
+            String [] atributosdistribuidor;
+            ArrayList <Distribuidor> listadistribuidores=new ArrayList <Distribuidor> ();
+	
 		try {
                   /*-------------------EJERCICIO CREAR FICHERO DISTRIBUIDORES-----------------*/
                   /*0.- Creo fichero*/
@@ -33,12 +37,10 @@ public class Main {
             *Paso 1.- Recorro el fichero
             *Paso 2.- Creo un ArrayList y luego lo relleno
             */
+
                   FileReader fr=new FileReader ("distribuidores.txt");
                   BufferedReader br=new BufferedReader(fr);                              
-                  String lineadelfichero;
-                  String [] atributosdistribuidor;
-                  ArrayList <Distribuidor> listadistribuidores=new ArrayList <Distribuidor> ();
-
+                  
                   lineadelfichero=br.readLine();
                     while (lineadelfichero!=null) {
                         
@@ -138,11 +140,13 @@ public class Main {
                               }
 
                         }
-
-                  pedidomanzanas.setDistribuidor(listadistribuidores.get(posiciondeinteres));
-
-
+                  if (posiciondeinteres>-1)
+                  {
+                        pedidomanzanas.setDistribuidor(listadistribuidores.get(posiciondeinteres));
+                  }
+                        
                   listamanzanas.add(pedidomanzanas);
+                  
 
             }
 
@@ -152,7 +156,7 @@ public class Main {
             System.out.println("El pedido de manzana es el siguiente: ");
             for (int im=0;im<listamanzanas.size();im++) {
                   System.out.println((im+1)+".");
-                  System.out.println("          "+listamanzanas.get(im).mostrarmanzana); 
+                  listamanzanas.get(im).mostrarmanzana();
             }
             System.out.println("-------------------------------------------------------");
 
@@ -190,7 +194,7 @@ public class Main {
                   System.out.print("Introduce nombre del distribuidor: ");
                   peticion=sc.next();
                         //Buscamos el nombre en el arraylist distribuidor y guardamos la posicion
-                        int posiciondeinteres2;
+                        int posiciondeinteres2=-1;
                         for (int b=0;b<listadistribuidores.size();b++) {
                               if (peticion==listadistribuidores.get(b).getNombre()) {
                                     posiciondeinteres2=b;
@@ -209,9 +213,9 @@ public class Main {
 
             System.out.println();
             System.out.println("El pedido de lechuga es el siguiente: ");
-            for (int il;il<listalechuga.size();il++) {
+            for (int il=0;il<listalechuga.size();il++) {
                   System.out.println((il+1)+". ");
-                  System.out.println("           "+listalechuga.get(il).mostrarlechuga()); 
+                  listalechuga.get(il).mostrarlechuga();
 
             }
             System.out.println("-------------------------------------------------------");
@@ -222,7 +226,7 @@ public class Main {
             System.out.println("¿Cuántos pedidos de leche quieres?");
             int numleche;
             numleche=sc.nextInt();
-            for (int lg;lg<=numleche;lg++) {
+            for (int lg=0;lg<=numleche;lg++) {
 
                   Leche pedidoleche=new Leche();
 
@@ -236,10 +240,10 @@ public class Main {
                   pedidoleche.setEuroslitro(sc.nextDouble());
 
                   System.out.println("Introduce el nombre del distribuidor: ");
-                        peticion=sc.next();
-
+                  String peticion=sc.next();
+                  int posiciondeinteres3=-1;
                         for (int c=0;c<listadistribuidores.size();c++) {
-                              int posiciondeinteres3=-1;
+                              
                               if (peticion==listadistribuidores.get(c).getNombre()) posiciondeinteres3=c;
                         }
                   pedidoleche.setDistribuidor(listadistribuidores.get(posiciondeinteres3));
@@ -254,7 +258,7 @@ public class Main {
             System.out.println("El pedido de leche es el siguiente: ");
             for (int ll=0;ll<listaleche.size();ll++) {
                   System.out.println((ll+1)+". ");
-                  System.out.println("            "+listaleche.get(ll).mostrarleche());
+                  listaleche.get(ll).mostrarleche();
             }
             System.out.println("-------------------------------------------------------");
 
