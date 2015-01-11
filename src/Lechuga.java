@@ -10,6 +10,7 @@ public class Lechuga {
 		private String color;
 		private Double eurosUnidad;
 		private Distribuidor distribuidor;
+		private int codbarras;
 
 
 		public String getTipolechuga() {
@@ -60,6 +61,14 @@ public class Lechuga {
 		public void setDistribuidor (Distribuidor iddistribuidor) {
 
 			this.distribuidor=iddistribuidor;
+		}
+
+		public int getCodbarras() {
+			return codbarras;
+		}
+
+		public void setCodbarras(int idcodbarras) {
+			this.codbarras=idcodbarras;
 		}
 
 		public void mostrarlechuga() {

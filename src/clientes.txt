@@ -1,0 +1,4 @@
+Ane; Igartiburu; 35968233Q; C/Mayor nº3 2ºF# 20300# Azpeitia# Gipuzkoa; 1023; 0.10
+Rita; Barrera; 32334242T; Plaza Satrustegi nº69 2ºA# 20400# Zarauzt# Gipuzkoa; 1056; 0.10
+Ramiro; Medinazabal; 43234442B; c/Iparaguirre nº4 3ºizda# 20001# Donostia# Gipuzkoa; 344; 0.35
+Luis; Etxebeste; 53342249A; c/Prim nº3 1ºA# 20006# Donostia# Gipuzkoa; 900; 0.15

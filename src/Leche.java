@@ -8,6 +8,7 @@ public class Leche {
 		private String procedencia;
 		private Double eurosLitro;
 		private Distribuidor distribuidor;
+		private int codbarras;
 
 
 		public String getTipo() {
@@ -48,6 +49,14 @@ public class Leche {
 		public void setDistribuidor (Distribuidor iddistribuidor) {
 
 			this.distribuidor=iddistribuidor;
+		}
+
+		public int getCodbarras() {
+			return codbarras;
+		}
+
+		public void setCodbarras(int idcodbarras) {
+			this.codbarras=idcodbarras;
 		}
 
 		public void mostrarleche() {

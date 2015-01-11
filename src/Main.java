@@ -2,6 +2,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 import java.io.IOException;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -13,6 +14,11 @@ import java.io.BufferedReader;
 public class Main {
 
 	public static void main (String[] args) {
+
+            System.out.println("MENU");
+            
+
+
 	
             String lineadelfichero;
             String [] atributosdistribuidor;
@@ -102,10 +108,70 @@ public class Main {
             System.out.println("Error: "+e);
             }//fin del catch
 
-            /*
-            *Ejercicio3:
-            Paso 4.A- Solicitamos información de manzanas y la guardamos en objeto manzana para luego guardarlo en Arraylist
-            */
+/*---------------------LECTURA DE FICHERO CLIENTES.TXT E INTRODUCE ESOS DATOS E UN ARRAYLIST---------------------------*/
+
+            ArrayList<Cliente> listacliente=new ArrayList<Cliente>();
+
+            try {
+            File fl=new File("clientes.txt");
+            FileReader fr=new FileReader(fl);
+            BufferedReader br=new BufferedReader(fr);
+
+            //1. LECTURA DE FICHERO
+            String lecturalinea;
+            lecturalinea=br.readLine();
+            while (lecturalinea!=null) {
+
+                  Cliente datoscliente=new Cliente();
+
+                  //separo la linea extraida de fichero por "; " y se lo asigno a un array de string para luego poder acceder a esos datos
+            //2. ASIGNACIÓN A OBJETO CLIENTES
+                  String [] arraydatos=lecturalinea.split("; ");
+                  //se la añado en un objeto de tipo cliente llamado datoscliente
+                  datoscliente.setNombre(arraydatos[0]);
+                  datoscliente.setApellidos(arraydatos[1]);
+                  datoscliente.setDNI(arraydatos[2]);
+                  //resolver datos objeto direccion
+                        String [] arraydatosdireccion=arraydatos[3].split("# ");
+                        Direccion datosdireccion=new Direccion();
+                        datosdireccion.setDir(arraydatosdireccion[0]);
+                        datosdireccion.setCP(Integer.parseInt(arraydatosdireccion[1]));
+                        datosdireccion.setLocalidad(arraydatosdireccion[2]);
+                        datosdireccion.setProvincia(arraydatosdireccion[3]);
+
+                  datoscliente.setDireccion(datosdireccion);//ya tiene como parametro de entrada un objeto de tipo Direccion
+
+                  datoscliente.setNumsocio(Double.parseDouble(arraydatos[4]));
+                  datoscliente.setDto(Double.parseDouble(arraydatos[5]));
+
+            //3. INTRODUCIR REFERENCIA A OBJETO CLIENTE EN UN ARRAYLIST LLAMADO LISTACLIENTE 
+                  listacliente.add(datoscliente);
+
+                  lecturalinea=br.readLine();
+
+            }
+            }
+
+            catch (Exception e) {
+                  System.out.println("Error: "+e.getMessage());
+            }
+
+
+            /*-------------------------VISUALIZAR EL ARRAYLIST------------------------------------*/
+
+            System.out.println("Los clientes listados del archivo son: ");
+            for (int i=0;i<listacliente.size();i++) {
+                  listacliente.get(i).mostrarcliente();
+            }
+
+
+
+
+/*Ejercicio3:
+--------------Paso 4.A- SOLICITAMOS INFORMACION MANZANAS---------------------------------------------------
+            (y la guardamos en objeto manzana para luego guardarlo en Arraylist)            */
+
+
             Scanner sc=new Scanner(System.in);
             ArrayList<Manzana> listamanzanas=new ArrayList<Manzana>();
 
@@ -150,7 +216,7 @@ public class Main {
 
             }
 
-            //Visualizamos arraylist de manzana (listamanzanas)
+//Visualizamos arraylist de manzana (listamanzanas)
 
             System.out.println("=======================================================");
             System.out.println("El pedido de manzana es el siguiente: ");
@@ -160,8 +226,8 @@ public class Main {
             }
             System.out.println("-------------------------------------------------------");
 
-
-            /*Paso 4B. Solicitar información lechuga*/
+ 
+/*-----------------------------Paso 4B. SOLICITAR INFORMACION LECHUGA------------------------------------*/
             
             ArrayList<Lechuga> listalechuga=new ArrayList<Lechuga>();
 
@@ -220,7 +286,7 @@ public class Main {
             }
             System.out.println("-------------------------------------------------------");
 
-            /*Paso 4C. Solicitar información leche*/
+/*------------------------------Paso 4C. SOLICITAR INFORMACION LECHE--------------------------------------------------*/
             ArrayList<Leche>listaleche=new ArrayList<Leche>();
 
             System.out.println("¿Cuántos pedidos de leche quieres?");
@@ -263,5 +329,69 @@ public class Main {
             System.out.println("-------------------------------------------------------");
 
 	}
+
+      //guardamos en un fichero txt llamado productos.txt
+
+            try {
+                  File fl=new File(productos.txt);
+                  FileWriter fw=nw FileWriter(fl);
+                  //guardo manzanas
+                  for (int i=0;i<listamanzanas.size();i++) {
+                        fw.write(listamanzanas.get(i).getCodbarras()+"; ");
+                        fw.write(listamanzanas.get(i).getTipomanzana()+"; ");
+                        fw.write(listamanzanas.get(i).getProcedencia()+"; ");
+                        fw.write(listamanzanas.get(i).getColor()+"; ");
+                        fw.write(listamanzanas.get(i).getEuroskilo()+"; ");
+
+                        fw.write(listamanzanas.get(i).getDistribuidor().getNombre()+"#");
+                        fw.write(listamanzanas.get(i).getDistribuidor().getCIF()+"#");
+                        fw.write(listamanzanas.get(i).getDistribuidor().getDireccion().getDir()+", ");
+                        fw.write(listamanzanas.get(i).getDistribuidor().getDireccion()getCP()+", ");
+                        fw.write(listamanzanas.get(i).getDistribuidor().getDireccion().getLocalidad()+", ");
+                        fw.write(listamanzanas.get(i).getDistribuidor().getDireccion().getProvincia()+"\n");
+                  }
+
+                  //guardo lechugas
+
+                  for (int i=0;i<listalechugas.size();i++) {
+                        fw.write(listalechugas.get(i).getCodbarras()+"; ");
+                        fw.write(listalechugas.get(i).getTipolechuga()+"; ");
+                        fw.write(listalechugas.get(i).getProcedencia()+"; ");
+                        fw.write(listalechugas.get(i).getColor()+"; ");
+                        fw.write(listalechugas.get(i).getEurosunidad()+"; ");
+
+                        fw.write(listalechugas.get(i).getDistribuidor().getNombre()+"#");
+                        fw.write(listalechugas.get(i).getDistribuidor().getCIF()+"#");
+                        fw.write(listalechugas.get(i).getDistribuidor().getDireccion().getDir()+", ");
+                        fw.write(listalechugas.get(i).getDistribuidor().getDireccion()getCP()+", ");
+                        fw.write(listalechugas.get(i).getDistribuidor().getDireccion().getLocalidad()+", ");
+                        fw.write(listalechugas.get(i).getDistribuidor().getDireccion().getProvincia()+"\n");
+                  }
+
+                  //guardo leche
+
+                  for (int i=0;i<listaleche.size();i++) {
+                        fw.write(listaleche.get(i).getCodbarras()+"; ");
+                        fw.write(listaleche.get(i).getTipo()+"; ");
+                        fw.write(listaleche.get(i).getProcedencia()+"; ");
+                        fw.write(listaleche.get(i).getColor()+"; ");
+                        fw.write(listaleche.get(i).getEuroslitro()+"; ");
+
+                        fw.write(listaleche.get(i).getDistribuidor().getNombre()+"#");
+                        fw.write(listaleche.get(i).getDistribuidor().getCIF()+"#");
+                        fw.write(listaleche.get(i).getDistribuidor().getDireccion().getDir()+", ");
+                        fw.write(listaleche.get(i).getDistribuidor().getDireccion()getCP()+", ");
+                        fw.write(listaleche.get(i).getDistribuidor().getDireccion().getLocalidad()+", ");
+                        fw.write(listaleche.get(i).getDistribuidor().getDireccion().getProvincia()+"\n");
+                  }
+                  
+
+            }
+
+            catch (IOException e) {
+                  System.out.println("Error E/S: " + e);
+                  
+            }
+
 
 }

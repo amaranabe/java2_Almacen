@@ -10,6 +10,7 @@ public class Manzana {
 		private String color;
 		private Double eurosKilo;
 		private Distribuidor distribuidor;
+		private int codbarras;
 
 
 		public String getTipomanzana() {
@@ -61,6 +62,16 @@ public class Manzana {
 
 			this.distribuidor=iddistribuidor;
 		}
+
+		public int getCodbarras() {
+			return codbarras;
+		}
+
+		public void setCodbarras(int idcodbarras) {
+			this.codbarras=idcodbarras;
+		}
+
+
 
 		public void mostrarmanzana() {
 			System.out.println("Las características de la manzana son:");
