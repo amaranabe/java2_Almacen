@@ -14,11 +14,6 @@ import java.io.BufferedReader;
 public class Main {
 
 	public static void main (String[] args) {
-
-            System.out.println("MENU");
-            
-
-
 	
             String lineadelfichero;
             String [] atributosdistribuidor;
@@ -150,7 +145,7 @@ public class Main {
                   lecturalinea=br.readLine();
 
             }
-            }
+            }//fin del try
 
             catch (Exception e) {
                   System.out.println("Error: "+e.getMessage());
@@ -328,13 +323,13 @@ public class Main {
             }
             System.out.println("-------------------------------------------------------");
 
-	}
+	
 
       //guardamos en un fichero txt llamado productos.txt
 
-            try {
-                  File fl=new File(productos.txt);
-                  FileWriter fw=nw FileWriter(fl);
+          try {
+                  File fl=new File("productos.txt");
+                  FileWriter fw=new FileWriter(fl);
                   //guardo manzanas
                   for (int i=0;i<listamanzanas.size();i++) {
                         fw.write(listamanzanas.get(i).getCodbarras()+"; ");
@@ -346,41 +341,40 @@ public class Main {
                         fw.write(listamanzanas.get(i).getDistribuidor().getNombre()+"#");
                         fw.write(listamanzanas.get(i).getDistribuidor().getCIF()+"#");
                         fw.write(listamanzanas.get(i).getDistribuidor().getDireccion().getDir()+", ");
-                        fw.write(listamanzanas.get(i).getDistribuidor().getDireccion()getCP()+", ");
+                        fw.write(listamanzanas.get(i).getDistribuidor().getDireccion().getCP()+", ");
                         fw.write(listamanzanas.get(i).getDistribuidor().getDireccion().getLocalidad()+", ");
                         fw.write(listamanzanas.get(i).getDistribuidor().getDireccion().getProvincia()+"\n");
                   }
 
                   //guardo lechugas
 
-                  for (int i=0;i<listalechugas.size();i++) {
-                        fw.write(listalechugas.get(i).getCodbarras()+"; ");
-                        fw.write(listalechugas.get(i).getTipolechuga()+"; ");
-                        fw.write(listalechugas.get(i).getProcedencia()+"; ");
-                        fw.write(listalechugas.get(i).getColor()+"; ");
-                        fw.write(listalechugas.get(i).getEurosunidad()+"; ");
+                  for (int i=0;i<listalechuga.size();i++) {
+                        fw.write(listalechuga.get(i).getCodbarras()+"; ");
+                        fw.write(listalechuga.get(i).getTipolechuga()+"; ");
+                        fw.write(listalechuga.get(i).getProcedencia()+"; ");
+                        fw.write(listalechuga.get(i).getColor()+"; ");
+                        fw.write(listalechuga.get(i).getEurosunidad()+"; ");
 
-                        fw.write(listalechugas.get(i).getDistribuidor().getNombre()+"#");
-                        fw.write(listalechugas.get(i).getDistribuidor().getCIF()+"#");
-                        fw.write(listalechugas.get(i).getDistribuidor().getDireccion().getDir()+", ");
-                        fw.write(listalechugas.get(i).getDistribuidor().getDireccion()getCP()+", ");
-                        fw.write(listalechugas.get(i).getDistribuidor().getDireccion().getLocalidad()+", ");
-                        fw.write(listalechugas.get(i).getDistribuidor().getDireccion().getProvincia()+"\n");
+                        fw.write(listaleche.get(i).getDistribuidor().getNombre()+"#");
+                        fw.write(listalechuga.get(i).getDistribuidor().getCIF()+"#");
+                        fw.write(listalechuga.get(i).getDistribuidor().getDireccion().getDir()+", ");
+                        fw.write(listalechuga.get(i).getDistribuidor().getDireccion().getCP()+", ");
+                        fw.write(listalechuga.get(i).getDistribuidor().getDireccion().getLocalidad()+", ");
+                        fw.write(listalechuga.get(i).getDistribuidor().getDireccion().getProvincia()+"\n");
                   }
 
                   //guardo leche
 
-                  for (int i=0;i<listaleche.size();i++) {
+				for (int i=0;i<listaleche.size();i++) {
                         fw.write(listaleche.get(i).getCodbarras()+"; ");
                         fw.write(listaleche.get(i).getTipo()+"; ");
                         fw.write(listaleche.get(i).getProcedencia()+"; ");
-                        fw.write(listaleche.get(i).getColor()+"; ");
                         fw.write(listaleche.get(i).getEuroslitro()+"; ");
 
                         fw.write(listaleche.get(i).getDistribuidor().getNombre()+"#");
                         fw.write(listaleche.get(i).getDistribuidor().getCIF()+"#");
                         fw.write(listaleche.get(i).getDistribuidor().getDireccion().getDir()+", ");
-                        fw.write(listaleche.get(i).getDistribuidor().getDireccion()getCP()+", ");
+                        fw.write(listaleche.get(i).getDistribuidor().getDireccion().getCP()+", ");
                         fw.write(listaleche.get(i).getDistribuidor().getDireccion().getLocalidad()+", ");
                         fw.write(listaleche.get(i).getDistribuidor().getDireccion().getProvincia()+"\n");
                   }
@@ -392,6 +386,6 @@ public class Main {
                   System.out.println("Error E/S: " + e);
                   
             }
-
+	}
 
 }
