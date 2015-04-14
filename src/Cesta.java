@@ -43,7 +43,7 @@ class Cesta {
 	public ArrayList<Leche> getPleche () {
 		return pleche;
 	}
-
+/*
 	public double cuenta() {
 		//buscar codigo en manzana
 		for (int i=0;i< ; ) {
@@ -56,5 +56,5 @@ class Cesta {
 		resultado=
 		return resultado;
 	}
-
+*/
 }

@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.io.File;
 import java.io.FileReader;
 import java.io.BufferedReader;
-import java.io.FileWriter;
-import java.io.IOException;
 
 
-
-class MainCompra {
+public class MainCompra {
 
 
 	public static void leerclientes() {
@@ -215,7 +212,7 @@ class MainCompra {
 
 //solicitar informacion cliente
 			Scanner sc=new Scanner(System.in);
-			int socio;
+			double socio;
 
 			System.out.println();
 			System.out.print("Numero socio: ");
@@ -233,7 +230,7 @@ class MainCompra {
 				}
 			}
 
-			double descuento=listacliente.get(p).getDto();
+/*double descuento=listacliente.get(p).getDto();
 //solicitar productos
 			int codigo=0;
 			int cantidad;
@@ -249,7 +246,7 @@ class MainCompra {
 
 
 
-/*MOSTRAR CUENTA
+MOSTRAR CUENTA
 */
 
 
